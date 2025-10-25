@@ -152,6 +152,8 @@ p {
   perspective: 1000px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  z-index: 5;           /* Add this */
+  pointer-events: auto; /* Add this */
 }
 
 .envelope:hover { transform: translateY(-5px) scale(1.02); }
@@ -433,6 +435,8 @@ footer {
   perspective: 1000px;
   cursor: pointer;
   transition: transform 1s ease, top 1s ease, left 1s ease;
+  z-index: 5;           /* Add this */
+  pointer-events: auto; /* Add this */
 }
 
 .big-envelope .envelope-base {
