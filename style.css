@@ -302,6 +302,16 @@ footer {
   pointer-events: none;
   opacity: 0.8;
 }
+/* Confetti */
+.firework {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: #183447;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100;
+}
 /* --- Additional Enhancements --- */
 
 /* Pulsing text on front page */
@@ -491,4 +501,152 @@ footer {
   color: #2e8b57;
   font-weight: bold;
   animation: bounceText 1.5s infinite ease-in-out;
+}
+/* --- Floating Balloons --- */
+.balloon {
+  position: fixed;
+  bottom: -60px;
+  width: 40px;
+  height: 60px;
+  border-radius: 20px 20px 20px 20px / 30px 30px 30px 30px;
+  background: #ff6b6b;
+  animation: riseBalloon 8s linear infinite;
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes riseBalloon {
+  0% { transform: translateY(0) translateX(0); opacity: 0.8; }
+  50% { transform: translateY(-50vh) translateX(15px) rotate(-5deg); }
+  100% { transform: translateY(-120vh) translateX(-10px) rotate(5deg); opacity: 0; }
+}
+
+/* --- Shimmer text --- */
+.shimmer {
+  background: linear-gradient(90deg, #a8e6a1, #fff, #a8e6a1);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shimmerText 3s linear infinite;
+}
+
+@keyframes shimmerText {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* --- Starfield Twinkle --- */
+.star {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.6;
+  pointer-events: none;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+  100% { opacity: 0.3; transform: scale(1); }
+}
+/* Floating Gifts */
+.gift {
+  position: fixed;
+  bottom: -50px;
+  width: 30px;
+  height: 30px;
+  background: #ffcc00;
+  border: 2px solid #e6b800;
+  border-radius: 6px;
+  transform: rotate(0deg);
+  animation: riseGift 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes riseGift {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  50% { transform: translateY(-50vh) rotate(180deg); opacity: 1; }
+  100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+/* Ribbon Streams */
+.ribbon {
+  position: fixed;
+  width: 6px;
+  height: 60px;
+  background: linear-gradient(to bottom, #ff69b4, #32cd32);
+  border-radius: 3px;
+  opacity: 0.7;
+  animation: streamRibbon 6s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes streamRibbon {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(50vh) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(120vh) rotate(-45deg); opacity: 0; }
+}
+.petal {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  background: url('petal.png') no-repeat center/contain;
+  pointer-events: none;
+  z-index: 1;
+  animation: fallPetal 8s linear infinite;
+}
+
+@keyframes fallPetal {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  50% { transform: translateY(50vh) rotate(180deg); opacity: 0.6; }
+  100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+}
+/* 🌸 Floating Petals, 💫 Emojis, 🌕 Light Orbs — all move upward */
+.floating-petal {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: petalRise 10s linear infinite;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes petalRise {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  50% { transform: translate(40px, -50vh) rotate(180deg); opacity: 0.8; }
+  100% { transform: translate(-40px, -100vh) rotate(360deg); opacity: 0; }
+}
+
+.float-emoji {
+  position: fixed;
+  bottom: -20px;
+  font-size: 22px;
+  animation: riseEmoji 8s linear infinite;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes riseEmoji {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+
+.light-orb {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(173,255,47,0.25), transparent 70%);
+  animation: floatOrb 20s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+}
+@keyframes floatOrb {
+  0% { transform: translate(0, 0); opacity: 0.6; }
+  100% { transform: translate(0, -80px); opacity: 0.9; }
 }
