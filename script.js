@@ -115,13 +115,13 @@ bigEnvelope.addEventListener('click', () => {
         if (i < fullText.length && popup.classList.contains('show')) {
           p.textContent += fullText.charAt(i);
           i++;
-          const t = setTimeout(typeStep, 15);
+          const t = setTimeout(typeStep, 9);
           typingTimeouts.push(t);
         }
       };
       const tStart = setTimeout(typeStep, delay);
       typingTimeouts.push(tStart);
-      delay += Math.max(300, fullText.length * 15) + 100;
+      delay += Math.max(300, fullText.length * 10) + 100;
     });
 
     spawnConfetti(80);
@@ -210,4 +210,43 @@ bigEnvelope.addEventListener('click', () => {
     span.style.animationDelay = (i * 2) + 's';
     document.body.appendChild(span);
   });
+  /* 🌸 Floating Petals */
+const petalEmojis = ['🌸','🌷','💮','🍃'];
+setInterval(() => {
+  const petal = document.createElement('div');
+  petal.className = 'floating-petal';
+  petal.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+  petal.style.left = Math.random() * 100 + 'vw';
+  petal.style.animationDuration = 6 + Math.random() * 5 + 's';
+  document.body.appendChild(petal);
+  setTimeout(() => petal.remove(), 12000);
+}, 900);
+
+/* 💫 Floating Emojis */
+const floatEmojis = ['💚','💫','🌸','🌿','✨','🎈','🦋'];
+setInterval(() => {
+  const e = document.createElement('div');
+  e.className = 'float-emoji';
+  e.textContent = floatEmojis[Math.floor(Math.random() * floatEmojis.length)];
+  e.style.left = Math.random() * 100 + 'vw';
+  e.style.animationDuration = 4 + Math.random() * 6 + 's';
+  e.style.fontSize = 18 + Math.random() * 14 + 'px';
+  document.body.appendChild(e);
+  setTimeout(() => e.remove(), 10000);
+}, 700);
+
+/* 🌕 Gradient Light Orbs */
+for (let i = 0; i < 5; i++) {
+  const orb = document.createElement('div');
+  orb.className = 'light-orb';
+  const size = 200 + Math.random() * 250;
+  orb.style.width = `${size}px`;
+  orb.style.height = `${size}px`;
+  orb.style.top = Math.random() * 80 + 'vh';
+  orb.style.left = Math.random() * 80 + 'vw';
+  orb.style.animationDuration = 15 + Math.random() * 15 + 's';
+  orb.style.background = `radial-gradient(circle, rgba(${100+Math.random()*100},255,${100+Math.random()*100},0.25), transparent 70%)`;
+  document.body.appendChild(orb);
+}
+
 });
