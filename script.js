@@ -54,7 +54,31 @@ document.addEventListener('DOMContentLoaded', () => {
 const bigEnvelope = document.getElementById('bigEnvelope');
 
 yesBtn.addEventListener('click', () => {
-  // Hide front page
+  // Play background music after clicking "Yes"
+  const bgMusic = document.getElementById("bgMusic");
+  if (bgMusic) {
+    bgMusic.currentTime = 0;
+bgMusic.volume = 0.3;
+bgMusic.loop = false; // don’t loop automatically
+
+let playCount = 0;
+bgMusic.play().catch(err => {
+  console.log("Autoplay blocked, will start after user interaction:", err);
+});
+
+bgMusic.addEventListener('ended', () => {
+  playCount++;
+  if (playCount < 2) {  // 👈 play 2 times total
+    bgMusic.currentTime = 0;
+    bgMusic.play();
+  } else {
+    console.log("Music finished after 2 loops 🎶");
+  }
+});
+
+  }
+
+  // Hide front page smoothly
   front.style.opacity = '0';
   setTimeout(() => {
     front.style.display = 'none';
@@ -115,13 +139,13 @@ bigEnvelope.addEventListener('click', () => {
         if (i < fullText.length && popup.classList.contains('show')) {
           p.textContent += fullText.charAt(i);
           i++;
-          const t = setTimeout(typeStep, 9);
+          const t = setTimeout(typeStep, 20);
           typingTimeouts.push(t);
         }
       };
       const tStart = setTimeout(typeStep, delay);
       typingTimeouts.push(tStart);
-      delay += Math.max(300, fullText.length * 10) + 100;
+      delay += Math.max(300, fullText.length * 20) + 100;
     });
 
     spawnConfetti(80);
